@@ -6,21 +6,29 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.banking</groupId>
-    <artifactId>banking-core</artifactId>
+    <artifactId>banking-account</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>Banking Core Module</name>
-    <description>Core banking domain models and interfaces</description>
+    <name>Banking Account Module</name>
+    <description>Account management module for banking system</description>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.9.2</junit.version>
+        <banking-core.version>1.0.0</banking-core.version>
     </properties>
 
     <dependencies>
+        <!-- Dependency on banking-core module -->
+        <dependency>
+            <groupId>com.banking</groupId>
+            <artifactId>banking-core</artifactId>
+            <version>${banking-core.version}</version>
+        </dependency>
+
         <!-- JUnit 5 for testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -46,26 +54,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0</version>
             </plugin>
-                <plugin>
-          <groupId>org.jacoco</groupId>
-          <artifactId>jacoco-maven-plugin</artifactId>
-          <version>0.8.11</version>
-          <executions>
-            <execution>
-              <goals>
-                <goal>prepare-agent</goal>
-              </goals>
-            </execution>
-            <execution>
-              <id>report</id>
-              <phase>test</phase>
-              <goals>
-                <goal>report</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-</plugins>
+        </plugins>
     </build>
 </project>
 
